@@ -1,4 +1,5 @@
 using MauiAppProjetoEventos.Models;
+using System;
 
 namespace MauiAppProjetoEventos.Views
 {
@@ -14,14 +15,14 @@ namespace MauiAppProjetoEventos.Views
             evento = new Evento
             {
                 DataInicio = DateTime.Today,
-                DataTermino = DateTime.Today.AddDays(1)
+                DataTermino = DateTime.Today
             };
 
             // Define limites de datas válidas
             dtpck_inicio.MinimumDate = DateTime.Today;
             dtpck_inicio.MaximumDate = DateTime.Today.AddMonths(6);
 
-            dtpck_termino.MinimumDate = evento.DataInicio.AddDays(1);
+            dtpck_termino.MinimumDate = DateTime.Today;
             dtpck_termino.MaximumDate = DateTime.Today.AddMonths(6);
 
             // Define o contexto de binding
@@ -31,7 +32,7 @@ namespace MauiAppProjetoEventos.Views
         // Atualiza limites do término quando o início muda
         private void dtpck_inicio_DataSelected(object sender, DateChangedEventArgs e)
         {
-            dtpck_termino.MinimumDate = e.NewDate.AddDays(1);
+            dtpck_termino.MinimumDate = e.NewDate.AddDays(0);
             evento.DataInicio = e.NewDate;
         }
 
