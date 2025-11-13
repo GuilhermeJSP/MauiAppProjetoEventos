@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppProjetoEventos.Views.CadastroEvento"
+             Title="Cadastro de Evento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource MidnightBlue}">
+
+    <!-- 🔽 ScrollView DEVE ficar como raiz do conteúdo para rolar tudo -->
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Título -->
+            <Label Text="Cadastro de Evento" 
+                   FontFamily="Quintessential"
+                   FontSize="45"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource PrimaryDark}" />
+
+            <!-- Card com os campos -->
+            <Frame Padding="10"
+                   Margin="10"
+                   CornerRadius="10">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Nome do Evento" 
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}"/>
+                    
+                    <Entry Text="{Binding Nome, Mode=TwoWay}" 
+                           Placeholder="Digite o nome do evento" />
+
+                    <Label Text="Data de Início" 
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}"/>
+                    
+                    <DatePicker x:Name="dtpck_inicio"
+                                DateSelected="dtpck_inicio_DataSelected"
+                                Format="dd/MM/yyyy"/>
+
+                    <Label Text="Data de Término" 
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}"/>
+
+                    <DatePicker x:Name="dtpck_termino"
+                                DateSelected="dtpck_termino_DataSelected"
+                                Format="dd/MM/yyyy"/>
+
+                    <Label Text="Número de Participantes" 
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}"/>
+                   
+                    <Entry Text="{Binding NumeroParticipantes, Mode=TwoWay}" 
+                           Keyboard="Numeric" 
+                           Placeholder="Ex: 100" />
+
+                    <Label Text="Local do Evento" 
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}"/>
+                   
+                    <Entry Text="{Binding Local, Mode=TwoWay}" 
+                           Placeholder="Digite o local" />
+
+                    <Label Text="Custo por Participante (R$)"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}"/>
+                   
+                    <Entry Text="{Binding CustoPorParticipante, Mode=TwoWay}" 
+                           Keyboard="Numeric" 
+                           Placeholder="Ex: 150,00" />
+
+                    <Button Text="Cadastrar"
+                            CornerRadius="10"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            BackgroundColor="{StaticResource PrimaryDark}"
+                            Clicked="OnCadastrarClicked" />
+                    
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

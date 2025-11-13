@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppProjetoEventos.Views.ResumoEvento"
+             Title="Resumo do Evento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource MidnightBlue}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Título -->
+            <Label Text="Resumo do Evento" 
+                   FontFamily="Quintessential"
+                   FontSize="45"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource PrimaryDark}" />
+
+            <!-- Card principal -->
+            <Frame Padding="20"
+                   CornerRadius="20"
+                   BackgroundColor="Black"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Nome do Evento"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding Nome}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="White" />
+
+                    <Label Text="Local"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding Local}"
+                           TextColor="White" />
+
+                    <Label Text="Data de Início"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}"
+                           TextColor="White" />
+
+                    <Label Text="Data de Término"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}"
+                           TextColor="White" />
+
+                    <Label Text="Duração (dias)"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding DuracaoDias, StringFormat='{0} dia(s)'}"
+                           TextColor="White" />
+
+                    <Label Text="Participantes"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding NumeroParticipantes}"
+                           TextColor="White" />
+
+                    <Label Text="Custo por Participante"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding CustoPorParticipante, StringFormat='{0:c}'}"
+                           TextColor="White" />
+
+                    <Label Text="Custo Total"
+                           FontFamily="StoryScript"
+                           TextTransform="Uppercase"
+                           FontSize="Subtitle"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding CustoTotal, StringFormat='{0:c}'}"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="White" />
+
+                    <!-- Botão para voltar -->
+                    <Button Text="Voltar"
+                            CornerRadius="10"
+                            FontAttributes="Bold"
+                            BackgroundColor="{StaticResource PrimaryDark}"
+                            TextColor="Black"
+                            Clicked="OnVoltarClicked" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
